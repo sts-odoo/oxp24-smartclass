@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Dental Treatment -->
+        <record id="product_category_dental" model="product.category">
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="name">Dental Treatment</field>
+        </record>
+
+        <record id="root_canal_treatment" model="product.product">
+            <field name="name">Root canal treatment</field>
+            <field name="list_price">400.0</field>
+            <field name="standard_price">400.0</field>
+            <field name="type">dental</field>
+            <field name="dental_care_type">tooth</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="categ_id" ref="product_category_dental"/>
+        </record>
+
+        <record id="tooth_fillings" model="product.product">
+            <field name="name">Tooth Fillings</field>
+            <field name="list_price">15.0</field>
+            <field name="standard_price">15.0</field>
+            <field name="type">dental</field>
+            <field name="dental_care_type">part</field>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="uom_po_id" ref="uom.product_uom_hour"/>
+            <field name="categ_id" ref="product_category_dental"/>
+        </record>
+
+        <record id="tooth_extractions" model="product.product">
+            <field name="name">Tooth extractions</field>
+            <field name="list_price">354.0</field>
+            <field name="standard_price">354.0</field>
+            <field name="type">dental</field>
+            <field name="dental_care_type">tooth</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="categ_id" ref="product_category_dental"/>
+        </record>
+
+        <record id="crown" model="product.product">
+            <field name="name">Crown</field>
+            <field name="list_price">1789.0</field>
+            <field name="standard_price">1789.0</field>
+            <field name="type">dental</field>
+            <field name="dental_care_type">tooth</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="categ_id" ref="product_category_dental"/>
+        </record>
+
+        <record id="teeth_whitening" model="product.product">
+            <field name="name">Teeth Whitening</field>
+            <field name="list_price">100.0</field>
+            <field name="standard_price">100.0</field>
+            <field name="type">dental</field>
+            <field name="dental_care_type">mouth</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="categ_id" ref="product_category_dental"/>
+        </record>
+        <record id="base.res_partner_address_15" model="res.partner">
+            <field name="is_patient" eval="True"/>
+        </record>
+        <record id="base.res_partner_address_28" model="res.partner">
+            <field name="is_patient" eval="True"/>
+        </record>
+    </data>
+</odoo>

@@ -6,17 +6,18 @@
     'sequence': 1,
     'author': 'Odoo S.A.',
     'website': 'http://www.odoo.com',
-    'depends': ['base'],
+    'depends': ['sale'],
     'data': [
         'views/dental.xml',
         'security/ir.model.access.csv'
     ],
     'assets': {
         'web.assets_backend': [
-            # 'dental_practice/static/src/**/*',
+            'dental_practice/static/src/**/*',
         ],
     },
     'demo': [
+        'data/dental_demo.xml',
     ],
     'installable': True,
     'auto_install': False,
