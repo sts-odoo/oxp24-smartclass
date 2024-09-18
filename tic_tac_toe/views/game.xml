@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <record id="action_games" model="ir.actions.act_window">
+        <field name="name">Games</field>
+        <field name="res_model">tictactoe.game</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+  <record id="view_paas_branch_list" model="ir.ui.view">
+      <field name="name">tictactoe.game.list</field>
+      <field name="model">tictactoe.game</field>
+      <field name="arch" type="xml">
+          <list string="Games">
+                <field name="player_x_id"/>
+                <field name="player_o_id"/>
+                <field name="start"/>
+          </list>
+      </field>
+  </record>
+        <record id="tictactoe" model="ir.ui.view">
+            <field name="name">tic.tac.toe.game</field>
+            <field name="model">tictactoe.game</field>
+      <field name="arch" type="xml">
+          <form string="Game">
+              <sheet>
+                    <group>
+                        <field name="player_x_id"/>
+                        <field name="player_o_id"/>
+                        <field name="start"/>
+                    </group>
+              </sheet>
+            <chatter/>
+          </form>
+      </field>
+  </record>
+
+  <menuitem id="menu_tictactoe" name="TicTacToe" sequence="20" web_icon="tic_tac_toe,static/src/img/tic-tac-toe-icon.png"/>
+  <menuitem id="menu_tictactoe_games" name="Games" parent="menu_tictactoe" sequence="20" action="action_games"/>
+</data>

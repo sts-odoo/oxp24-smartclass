@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <record id="view_users_simple_form_inherit_tic_tac_toe" model="ir.ui.view">
+        <field name="name">view.users.simple.form.inherit.tic.tac.toe</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_simple_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Tic Tac Toe">
+                    <field name="wins"/>
+                    <field name="ties"/>
+                    <field name="losses"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</data>
+
+
+

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tictactoe_game,access_tictactoe_game,model_tictactoe_game,base.group_user,1,1,1,1
+access_tictactoe_play,access_tictactoe_play,model_tictactoe_play,base.group_user,1,1,1,1
+access_tictactoe_game_portal,access_tictactoe_game_public,model_tictactoe_game,base.group_portal,1,1,1,0
+access_tictactoe_play_portal,access_tictactoe_play_public,model_tictactoe_play,base.group_portal,1,1,1,0

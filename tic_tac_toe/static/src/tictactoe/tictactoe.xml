@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="tic_tac_toe.TicTacToe">
+        <div>
+            <div class="board-row">
+                <button class="square" t-on-click="() => props.clickSquare('1')"><t t-esc="props.game['1']"/></button>
+                <button class="square" t-on-click="() => props.clickSquare('2')"><t t-esc="props.game['2']"/></button>
+                <button class="square" t-on-click="() => props.clickSquare('3')"><t t-esc="props.game['3']"/></button>    
+            </div>
+            <div class="board-row">
+                <button class="square" t-on-click="() => props.clickSquare('4')"><t t-esc="props.game['4']"/></button>
+                <button class="square" t-on-click="() => props.clickSquare('5')"><t t-esc="props.game['5']"/></button>
+                <button class="square" t-on-click="() => props.clickSquare('6')"><t t-esc="props.game['6']"/></button>
+            </div>
+            <div class="board-row">
+                <button class="square" t-on-click="() => props.clickSquare('7')"><t t-esc="props.game['7']"/></button>
+                <button class="square" t-on-click="() => props.clickSquare('8')"><t t-esc="props.game['8']"/></button>
+                <button class="square" t-on-click="() => props.clickSquare('9')"><t t-esc="props.game['9']"/></button>
+            </div>
+        </div>
+    </t>
+</templates>
