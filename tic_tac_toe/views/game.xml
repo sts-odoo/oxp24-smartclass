@@ -14,6 +14,8 @@
                 <field name="player_x_id"/>
                 <field name="player_o_id"/>
                 <field name="start"/>
+                <field name="end"/>
+                <field name="winner_id"/>
           </list>
       </field>
   </record>
@@ -27,7 +29,12 @@
                         <field name="player_x_id"/>
                         <field name="player_o_id"/>
                         <field name="start"/>
+                        <field name="end"/>
+                        <field name="next_player_id"/>
+                        <field name="winner_id"/>
+                        <field name="id" invisible="1"/>
                     </group>
+                    <field name="play_ids" widget="tic_tac_toe"/>
               </sheet>
             <chatter/>
           </form>

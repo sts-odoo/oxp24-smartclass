@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_game" name="Show Games" inherit_id="portal.portal_my_home" priority="15">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-set="portal_service_category_enable" t-value="True"/>
+        </xpath>
+        <div id="portal_service_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/tic_tac_toe/static/src/img/tic-tac-toe-icon.png'"/>
+                <t t-set="text">Tic Tac Toe Games</t>
+                <t t-set="title">Games</t>
+                <t t-set="url" t-value="'/my/tictactoe/games'"/>
+                <t t-set="placeholder_count" t-value="'game_count'"/>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </div>
+    </template>
+
+    <template id="portal_my_games" name="My Games">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Games</t>
+                <div>
+                    <a t-attf-href="/tictactoe/initialize" class="btn btn-primary"><i class="fa fa-plus"/> Create game</a>
+                </div>
+            </t>
+            <t t-if="not games">
+                <div class="alert alert-warning" role="alert">
+                    There are no games.
+                </div>
+            </t>
+            <t t-if="games" t-call="portal.portal_table">
+                <tbody>
+                    <tr t-foreach="games" t-as="game">
+                        <td>
+                            <a t-attf-href="/my/tictactoe/{{ game.id }}"><span t-field="game.name"/></a>
+                        </td>
+                        <td class="text-end">
+                            <t t-out="game.player_x_id.name" />
+                            <t t-out="game.player_o_id.name" />
+                        </td>
+                    </tr>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_game" name="My Game">
+        <t t-call="portal.portal_layout">
+            <div class="d-flex justify-content-between flex-wrap mb-3">
+                <h4 class="mb-2 mb-md-0">
+                    Game - <span t-field="game.name"/>
+                </h4>
+            </div>
+            <div class="row">
+               <div class="col-lg-6 offset-lg-1 col-xl-5 offset-xl-1" t-foreach="[game.player_x_id, game.player_o_id]" t-as="player">
+                    <t t-if="player">
+                        <img t-if="player.partner_id.sudo().avatar_1024" class="col-lg-1 o_avatar o_portal_contact_img rounded"
+                                        t-att-src="image_data_uri(player.partner_id.sudo().avatar_512)"
+                                alt="Contact" width="50"/>
+                        <div class="col-lg-5">
+                            <h5 t-out="player.partner_id.name"/>
+                            <div>
+                                <strong>Records</strong>
+                                <span t-out="player.partner_id.wins"/> Wins - <span t-out="player.partner_id.losses"/> Losses - <span t-out="player.partner_id.ties"/> Ties
+                            </div>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <a t-attf-href="/tictactoe/{{ game.id }}/join" class="btn btn-primary"><i class="fa fa-pencil"/> Join</a>
+                    </t>
+                </div>
+                <div>
+                    <owl-component name="tictactoe.public_tictactoe" t-attf-props='{"gameId": {{game.id}}}'/>
+                </div>
+            </div>
+             <hr/>
+            <div>
+                <h3>Communication history</h3>
+                <div>
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="game"/>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

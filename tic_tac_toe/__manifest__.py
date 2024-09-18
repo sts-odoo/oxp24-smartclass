@@ -11,10 +11,15 @@
         'security/ir.model.access.csv',
         'views/game.xml',
         'views/res_user.xml',
+        'pages/portal.xml',
     ],
     'assets': {
         'web.assets_backend': [
-            # 'tic_tac_toe/static/src/**/*',
+            'tic_tac_toe/static/src/**/*',
+        ],
+        'web.assets_frontend': [
+            'tic_tac_toe/static/src/tictactoe/**/*',
+            'tic_tac_toe/static/src/public/**/*',
         ],
     },
     'demo': [],

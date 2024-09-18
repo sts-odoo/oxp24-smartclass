@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="tic_tac_toe.TicTacToeField">
+        <TicTacToe game="game" clickSquare.bind="clickSquare"/>
+    </t>
+</templates>
