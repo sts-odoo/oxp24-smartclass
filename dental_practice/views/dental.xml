@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+
+<!-- model="ir.actions.act_window.view" -->
+    <!-- Menu -->
+  <menuitem id="menu_dental" name="Dental Practice" sequence="20" web_icon="dental_practice,static/src/img/dental_practice.png"/>
+</data>
