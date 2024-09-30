@@ -71,14 +71,14 @@ class stuff(models.Model):
                 if sync.token:
                     data['token'] = sync.token
                     data['access_token'] = sync.token
-                requests.post(sync.url, data=data, timeout=10)
+                requests.post(sync.url, json=data, timeout=10)
             else:
                 for rec in recs:
                     data = {'data': rec}
                     if sync.token:
                         data['token'] = sync.token
                         data['access_token'] = sync.token
-                    requests.post(sync.url, data=data, timeout=10)
+                    requests.post(sync.url, json=data, timeout=10)
         except Exception:
             _logger.exception('Failed to sync to %s', sync.url)
             sync.state = 'failed'
