@@ -38,7 +38,7 @@ class sync(models.Model):
                     'quantity': line.product_uom_qty,
                     } for line in so.order_line],
             })
-        return json.dumps(res)
+        return res
 
 
 class stuff(models.Model):
@@ -67,14 +67,14 @@ class stuff(models.Model):
         try:
             recs = self.env['sale.order'].sudo()._get_data(limit=sync.limit)
             if sync.sync_type == 'all':
-                data = {'data': recs}
+                data = {'data': json.dumps(recs)}
                 if sync.token:
                     data['token'] = sync.token
                     data['access_token'] = sync.token
                 requests.post(sync.url, json=data, timeout=10)
             else:
                 for rec in recs:
-                    data = {'data': rec}
+                    data = {'data': json.dumps(rec)}
                     if sync.token:
                         data['token'] = sync.token
                         data['access_token'] = sync.token

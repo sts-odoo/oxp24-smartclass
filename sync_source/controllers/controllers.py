@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
+import json
 
 from odoo import http, _
 from odoo.http import request
@@ -13,11 +14,11 @@ class Syncstuff(http.Controller):
 
     @http.route('/pull/single/<int:record_id>', type='http', auth='public')
     def pull_single(self, record_id=None, access_token=None, **kw):
-        return request.env['sale.order'].sudo()._get_data(rec_id=record_id)
+        return json.dumps(request.env['sale.order'].sudo()._get_data(rec_id=record_id))
 
     @http.route('/pull/all', type='http', auth='public')
     def pull_all(self, limit=100, **kw):
-        return request.env['sale.order'].sudo()._get_data(limit=limit)
+        return json.dumps(request.env['sale.order'].sudo()._get_data(limit=limit))
 
     @http.route('/push/<string:sync_type>', type='http', auth='public')
     def push_data(self, sync_type, url, token=None, **kw):
